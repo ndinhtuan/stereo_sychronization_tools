@@ -167,7 +167,7 @@ def aruco_display(detector, image):
             list_corners.append(bottomLeft)
             list_corners.append(bottomRight)
 
-            cv2.line(image, topLeft, topRight, (0, 0, 255), 2)
+            cv2.line(image, topLeft, topRight, (0, 255, 0), 2)
             cv2.line(image, topRight, bottomRight, (0, 255, 0), 2)
             cv2.line(image, bottomRight, bottomLeft, (0, 255, 0), 2)
             cv2.line(image, bottomLeft, topLeft, (0, 255, 0), 2)
@@ -177,9 +177,10 @@ def aruco_display(detector, image):
             cY = int((topLeft[1] + bottomRight[1]) / 2.0)
             cv2.circle(image, (cX, cY), 4, (0, 0, 255), -1)
             # draw the ArUco marker ID on the image
-            cv2.putText(image, str(markerID),(topLeft[0], topLeft[1] - 10), cv2.FONT_HERSHEY_SIMPLEX,
-                0.5, (0, 255, 0), 2)
-            print("[Inference] ArUco marker ID: {}".format(markerID))
+
+            # cv2.putText(image, str(markerID),(topLeft[0], topLeft[1] - 10), cv2.FONT_HERSHEY_SIMPLEX,
+            #     0.5, (0, 255, 0), 2)
+            # print("[Inference] ArUco marker ID: {}".format(markerID))
             # show the output image
 
     if (len(list_corners) < 4*4):
@@ -189,11 +190,11 @@ def aruco_display(detector, image):
     rect = cv2.minAreaRect(np.array(list_corners))
     box = cv2.boxPoints(rect)
     box = np.int0(box)
-    print(box)
+    # print(box)
 
     # draw_aruco_box(ori_image, box[0], box[3], box[1], box[2])
     tmp = four_point_transform(ori_image, box)
     gray = cv2.cvtColor(tmp, cv2.COLOR_BGR2GRAY)
-    cv2.imshow("Haha",gray)
+    # cv2.imshow("Haha",gray)
 
     return image, gray
