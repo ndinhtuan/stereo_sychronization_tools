@@ -67,18 +67,18 @@ if __name__=="__main__":
         ltime = get_gray_code(detector, limg, False)
         rtime = get_gray_code(detector, rimg, False)
 
-        re = "Don't see gray code in both left and right images \n"
+        re = "{} Don't see gray code in both left and right images \n".format(name_img)
         img_show = cv2.hconcat([limg, rimg])
 
         status = 0
         if ltime is not None and rtime is not None:
             
             if ltime == rtime:
-                re = "Left and right camera is synchornize \n"
+                re = "{} Left and right camera is synchornize \n".format(name_img)
                 status = 1
             else:
                 status = 2
-                re = "Left and Right is not synch, with timestamp: L-{} and R-{} \n".format(ltime, rtime)
+                re = "{} Left and Right is not synch, with timestamp: L-{} and R-{} \n".format(name_img, ltime, rtime)
 
         status_str = ""
 

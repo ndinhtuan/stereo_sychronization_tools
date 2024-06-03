@@ -20,8 +20,8 @@ def main():
     """
     parser = argparse.ArgumentParser(description="Extract images from a ROS bag.")
     parser.add_argument("bag_file", help="Input ROS bag.")
-    parser.add_argument("--left_output_dir", help="Left output directory.", default="/media/tuan/Daten/mapathon/test_synch_cam/mako_cam/21072023/left")
-    parser.add_argument("--right_output_dir", help="Right output directory.", default="/media/tuan/Daten/mapathon/test_synch_cam/mako_cam/21072023/right")
+    parser.add_argument("--left_output_dir", help="Left output directory.", default="/media/tuan/Daten/mapathon/ikg_cam_exterior_calib/3/left")
+    parser.add_argument("--right_output_dir", help="Right output directory.", default="/media/tuan/Daten/mapathon/ikg_cam_exterior_calib/3/right")
     parser.add_argument("--left_image_topic", help="Left image topic.", default="/stereo/left/image_color")
     parser.add_argument("--right_image_topic", help="Right image topic.", default="/stereo/right/image_color")
 
